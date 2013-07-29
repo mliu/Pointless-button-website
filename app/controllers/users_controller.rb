@@ -12,6 +12,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def click
+    current_user.update_attribute(:clicks, :clicks +1)
+  end
+
   private
 
     def user_params
