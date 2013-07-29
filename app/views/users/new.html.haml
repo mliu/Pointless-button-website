@@ -1,0 +1,26 @@
+%h1 Sign Up
+=link_to "Log in", new_session_path
+%br
+= form_for @user do |f|
+  - if !(@user.errors.empty?)
+    .error_messages
+      %h2{:style => "color:#FF0000"} The Following Errors Occurred
+      %ul
+        - for message in @user.errors.full_messages
+          %li= message
+  - flash.each do |name, msg|
+    %div{:style => "color:0000FF"}= msg
+  %br
+  .field
+    = f.label :username
+    = f.text_field :username
+  .field
+    = f.label :email
+    = f.text_field :email
+  .field
+    = f.label :password
+    = f.password_field :password
+  .field
+    = f.label :password_confirmation
+    = f.password_field :password_confirmation
+  .actions= f.submit
