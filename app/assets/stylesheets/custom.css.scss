@@ -1,31 +1,44 @@
 @import "bootstrap";
 
+.btn-large{
+  padding: 18px 28px;
+  font-size: 30px;
+  line-height: normal;
+  border-radius: 8px;
+}
+
 html{
+  margin:0;
+  padding:0;
   overflow-y:scroll;
 }
 
 body{
-  padding-top:60px;
+  padding-top:50px;
 }
 
-left{
-  width:50%;
+.left{
   float:left;
+  width:25%;
 }
 
-right{
-  width:50%;
-  float:right;
+.right{
+  margin-left:45%;
+  width:25%;
 }
 
 .form{
-  margin-left:50px;  
+  margin-left:5%;
+  overflow:hidden;
 }
 
 .middleDiv{
-  position:absolute;
+  width:500px;
+  height:200px;
+  border:1px solid LightGray;
+  position:fixed;
   left:50%;
   top:50%;
-  margin-left:-100px;
+  margin-left:-250px;
   margin-top:-100px;
 }

@@ -6,14 +6,11 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to root_path, :notice => "Sign up successful!"
+      flash[:user_create] = "Successfully created user"
+      redirect_to root_path
     else
       render "new"
     end
-  end
-
-  def click
-    current_user.update_attribute(:clicks, :clicks +1)
   end
 
   private

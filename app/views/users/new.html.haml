@@ -1,27 +1,50 @@
-.form.left
-  %h1 Sign Up
-  =link_to "Log in", new_session_path
-  %br
-  = form_for @user do |f|
-    - if !(@user.errors.empty?)
-      .error_messages
-        %h2{:style => "color:#FF0000"} The Following Errors Occurred
-        %ul
-          - for message in @user.errors.full_messages
-            %li= message
-    - flash.each do |name, msg|
-      %div{:style => "color:0000FF"}= msg
+.form
+  .hero-unit.left
+    %h1{style: "color:black"} Sign Up
+    -#=link_to "Log in", new_session_path
     %br
-    .field
-      = f.label :username
-      = f.text_field :username
-    .field
-      = f.label :email
-      = f.text_field :email
-    .field
-      = f.label :password
-      = f.password_field :password
-    .field
-      = f.label :password_confirmation
-      = f.password_field :password_confirmation
-    .actions= f.submit
+    = form_for @user do |f|
+      - if !(@user.errors.empty?)
+        .alert
+          %strong{style: "font-size:70%"} The Following Errors Occurred
+          %ul{style: "font-size:80%"}
+            - for message in @user.errors.full_messages
+              %li= message
+      - flash.each do |name, msg|
+        - if !(["invalid_login", "logout"].include?(name.to_s))
+          .alert.alert-success
+            %strong Well done!
+            %div{style: "font-size:70%"}= msg
+      .field
+        = f.label :username
+        = f.text_field :username
+      .field
+        = f.label :email
+        = f.text_field :email
+      .field
+        = f.label :password
+        = f.password_field :password
+      .field
+        = f.label :password_confirmation
+        = f.password_field :password_confirmation
+      .actions= f.submit("Create User", :class => "btn btn-primary")
+  
+  %div{style: "margin-left:5%; margin-right:5%; width:1px; height:350px; background-color:black; float:left;"}
+  
+  .hero-unit.right
+    %h1{style: "color:black"} Log in
+    -#=link_to "Sign up", new_user_path
+    %br
+    - flash.each do |name, msg|
+      - if (["invalid_login", "logout"].include?(name.to_s)) 
+        .alert
+          %strong{style: "font-size:70%"} Error!
+          %div{style: "font-size:70%"}= msg
+    = form_tag sessions_path do
+      .field
+        = label_tag :username
+        = text_field_tag :username, params[:username]
+      .field
+        = label_tag :password
+        = password_field_tag :password
+      .actions= submit_tag "Log in", :class => "btn btn-primary"

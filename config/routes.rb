@@ -2,6 +2,8 @@ LoginTest::Application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :buttons, only: [:index]
+  put '/buttons/click' => 'buttons#click'
+  post '/buttons/click' => 'buttons#click'
   root 'users#new'
 
   # The priority is based upon order of creation: first created -> highest priority.
