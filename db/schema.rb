@@ -14,6 +14,8 @@
 ActiveRecord::Schema.define(version: 20130730141521) do
 
   create_table "buttons", force: true do |t|
+    t.datetime "end_time"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

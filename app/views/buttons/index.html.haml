@@ -1,4 +1,13 @@
 .middleDiv{style: "text-align: center;"}
+  - flash.each do |name, msg|
+    - if !(name.to_s == "early_click")
+      .alert.alert-success
+        %strong= ["Hooray!", "Awesome!", "Yahoo!", "Bam!", "OH YEAH!", "Get pumped!"].sample
+        = msg
+    - else
+      .alert
+        %strong= ["Dafuq?", "Huh?", "Wait... What?", "WTF?", ":|"]
+        = msg
   = current_user.username
   = current_user.clicks
   %br
