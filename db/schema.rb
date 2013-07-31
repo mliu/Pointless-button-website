@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20130730141521) do
     t.string   "username"
     t.string   "email"
     t.string   "password_digest"
+    t.datetime "end_time",        default: '2013-07-30 20:57:15'
     t.integer  "clicks",          default: 0
     t.datetime "created_at"
     t.datetime "updated_at"

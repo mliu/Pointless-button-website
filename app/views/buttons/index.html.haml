@@ -1,14 +1,18 @@
-.middleDiv{style: "text-align: center;"}
+.timer
+
+.middleUpperDiv{style: "text-align: center;"}  
   - flash.each do |name, msg|
     - if !(name.to_s == "early_click")
       .alert.alert-success
         %strong= ["Hooray!", "Awesome!", "Yahoo!", "Bam!", "OH YEAH!", "Get pumped!"].sample
         = msg
-    - else
+    - elsif (name.to_s == "early_click")
       .alert
-        %strong= ["Dafuq?", "Huh?", "Wait... What?", "WTF?", ":|"]
+        %strong= ["Dafuq?", "Huh?", "Wait... What?", "WTF?", ":|"].sample
         = msg
-  = current_user.username
-  = current_user.clicks
-  %br
-  = link_to raw("The Button"), buttons_click_path, class: "btn btn-primary btn-large", method: :post
+.middleDiv{style: "text-align: center;"}
+  .centerBox
+    = current_user.username
+    = current_user.clicks
+    %br
+    = link_to raw("The Button"), buttons_click_path, class: "btn btn-primary btn-large", method: :post

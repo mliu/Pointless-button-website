@@ -13,6 +13,19 @@ class UsersController < ApplicationController
     end
   end
 
+  def click
+    @user = current_user
+    if @user.valid_click?
+      @user.update_attribute(:clicks, @user.read_attribute(:clicks).to_i + 1)
+      @user.update_attribute(:end_time, Time.now + rand(5..6000))
+      redirect_to buttons_path, notice: "You have clicked the button!"
+    else
+      flash[:early_click] = "You clicked too early! (+20 minutes)"
+      @user.update_attribute(:end_time, @user.read_attribute(:end_time).to_s.to_time() + 1200)
+      redirect_to buttons_path
+    end
+  end
+
   private
 
     def user_params

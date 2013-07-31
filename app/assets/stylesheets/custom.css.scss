@@ -32,6 +32,30 @@ body{
   overflow:hidden;
 }
 
+.centerBox{
+  margin-top:40px;
+}
+
+.timer{
+  position:fixed;
+  width:500px;
+  height:60px;
+  left:50%;
+  top:50%;
+  margin-left:-250px;
+  margin-top:-160px;  
+}
+
+.middleUpperDiv{
+  position:fixed;
+  width:500px;
+  height:30px;
+  left:50%;
+  top:50%;
+  margin-left:-250px;
+  margin-top:-100px;
+}
+
 .middleDiv{
   width:500px;
   height:200px;
