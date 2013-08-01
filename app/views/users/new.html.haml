@@ -36,9 +36,13 @@
     -#=link_to "Sign up", new_user_path
     %br
     - flash.each do |name, msg|
-      - if (["invalid_login", "logout"].include?(name.to_s)) 
+      - if (["invalid_login"].include?(name.to_s)) 
         .alert
           %strong{style: "font-size:70%"} Error!
+          %div{style: "font-size:70%"}= msg
+      - elsif (name = "logout")
+        .alert.alert-success
+          %strong{style: "font-size:70%"} See ya!
           %div{style: "font-size:70%"}= msg
     = form_tag sessions_path do
       .field

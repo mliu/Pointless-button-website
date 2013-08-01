@@ -1,9 +1,14 @@
 class UsersController < ApplicationController
   def new
+    @disable_header = true
     @user = User.new
   end
 
+  def button
+  end
+
   def create
+    @disable_header = true
     @user = User.new(user_params)
     if @user.save
       flash[:user_create] = "Successfully created user"
@@ -19,14 +24,14 @@ class UsersController < ApplicationController
       @user.update_attribute(:clicks, @user.read_attribute(:clicks).to_i + 1)
       @user.update_attribute(:end_time, Time.now + [86400, 172800, 259200, 345600, 432000, 518400, 604800].sample)
       flash[:click] = "You have clicked the button!"
-      #redirect_to buttons_path, notice: "You have clicked the button!"
+      #redirect_to button_path, notice: "You have clicked the button!"
     else
       flash[:early_click] = "You clicked too early! (+1 day)"
       @user.update_attribute(:end_time, @user.read_attribute(:end_time).to_s.to_time() + 86400)
-      #redirect_to buttons_path
+      #redirect_to button_path
     end
     respond_to do |format|
-      format.html { redirect_to buttons_path }
+      format.html { redirect_to button_path }
       format.js { redirect_to timer.js }
     end
   end
