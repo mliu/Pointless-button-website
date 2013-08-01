@@ -33,22 +33,23 @@ body{
 }
 
 .centerBox{
-  margin-top:40px;
+  margin-top:20px;
 }
 
-.timer{
+#jcountdown{
   position:fixed;
-  width:500px;
-  height:60px;
+  width:700px;
+  height:100px;
   left:50%;
   top:50%;
-  margin-left:-250px;
-  margin-top:-160px;  
+  margin-left:-370px;
+  margin-top:-200px;
 }
 
 .middleUpperDiv{
   position:fixed;
-  width:500px;
+  border-radius:15px;
+  width:501px;
   height:30px;
   left:50%;
   top:50%;
@@ -60,6 +61,7 @@ body{
   width:500px;
   height:200px;
   border:1px solid LightGray;
+  border-radius:5px;
   position:fixed;
   left:50%;
   top:50%;

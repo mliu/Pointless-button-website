@@ -1,5 +1,4 @@
-.timer
-  .div{id: "jcountdown"}
+.timer{ id: "jcountdown", data: {time: current_user.end_time.strftime("%Y-%m-%d")}}
   -#add timer here
 .middleUpperDiv{style: "text-align: center;"}  
   - flash.each do |name, msg|
@@ -13,7 +12,9 @@
         = msg
 .middleDiv{style: "text-align: center;"}
   .centerBox
-    = current_user.username
-    = current_user.clicks
-    %br
+    .div{style: "text-align: center;"}
+      %h2
+        %strong
+          = current_user.username.humanize
+          = current_user.clicks
     = link_to raw("The Button"), buttons_click_path, class: "btn btn-primary btn-large", method: :post

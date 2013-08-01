@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   #has_one :button, class_name: "Button", :foreign_key => "user_id"
 
   def valid_click?
-    diff_seconds = Time.now - self.read_attribute(:end_time).to_s.to_time()
+    diff_seconds = Time.now - self.read_attribute(:end_time).to_s.to_time.strftime("%Y-%m-%d").to_time
     diff_seconds > 0
   end
 end
