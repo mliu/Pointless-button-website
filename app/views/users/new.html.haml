@@ -11,9 +11,13 @@
             - for message in @user.errors.full_messages
               %li= message
       - flash.each do |name, msg|
-        - if !(["invalid_login", "logout"].include?(name.to_s))
+        - if !(["invalid_login", "logout", "no_login"].include?(name.to_s))
           .alert.alert-success
             %strong Well done!
+            %div{style: "font-size:70%"}= msg
+        - if (name.to_s == "no_login")
+          .alert
+            %strong Whoa there!
             %div{style: "font-size:70%"}= msg
       .field
         = f.label :username

@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20130802035354) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "clicks", force: true do |t|
     t.integer  "user_id"
     t.datetime "created_at"
@@ -23,7 +26,7 @@ ActiveRecord::Schema.define(version: 20130802035354) do
     t.string   "username"
     t.string   "email"
     t.string   "password_digest"
-    t.datetime "end_time",        default: '2013-08-02 13:54:17'
+    t.datetime "end_time",        default: '2013-08-05 19:25:07'
     t.datetime "created_at"
     t.datetime "updated_at"
   end

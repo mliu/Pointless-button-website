@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   validates_presence_of :username, :email, :password, before: create
   validates :username, length: { minimum: 3, maximum: 15 }
   validates_format_of :username, :with => /^[-a-z]+$/, multiline: true, message: "must only contain letters and numbers"
+  validates_format_of :email, :with => /^.+@.+$/, multiline: true
   has_many :clicks, :class_name => "Click", :foreign_key => "user_id"
   #has_one :button, class_name: "Button", :foreign_key => "user_id"
 

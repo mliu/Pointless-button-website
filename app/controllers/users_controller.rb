@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  skip_before_filter :require_login
+  skip_before_action :require_login, only: [:new, :create]
+  require 'will_paginate/array'
   def new
     @disable_header = true
     @user = User.new
@@ -14,7 +15,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @user_items = User.all.sort{|y,x| x.clicks.count <=> y.clicks.count}
+    @user_items = User.all.sort{|y,x| x.clicks.count <=> y.clicks.count}.paginate(page: params[:page], per_page: 15)
   end
 
   def create
@@ -24,7 +25,7 @@ class UsersController < ApplicationController
       flash[:user_create] = "Successfully created user"
       redirect_to root_path
     else
-      render "new"
+      render 'new'
     end
   end
 
