@@ -5,7 +5,6 @@ class CreateUsers < ActiveRecord::Migration
       t.string :email
       t.string :password_digest
       t.datetime :end_time, default: Time.now
-      t.integer :clicks, default: 0
 
       t.timestamps
     end

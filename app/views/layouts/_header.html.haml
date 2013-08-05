@@ -1,6 +1,11 @@
 %header.navbar.navbar-fixed-top
-  .navbar-inner
-    .container
+  .navbar-inner{style: "overflow:hidden;"}
+    .div{style: "float:right; margin-right:20px; margin-top:9px;"}
+      %strong
+        = link_to current_user.username.humanize, user_url(current_user.id)
+        &nbsp;:&nbsp;&nbsp;
+        = current_user.clicks.count.to_s + " Clicks"
+    .div{style: "margin-left:10px; overflow:hidden"}
       #logo Pointless Button Clicking Game
       %nav
         %ul.nav.pull-left{ "data-no-turbolink" => true }

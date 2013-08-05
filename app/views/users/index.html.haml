@@ -1,0 +1,18 @@
+.centerBox
+  %h2{style: "margin-top:30px; text-align:center;"}
+    Top Clickers
+  %table.table-bordered.table-hover.tableDiv
+    %tr
+      %th Rank
+      %th Username
+      %th Clicks
+      %th Most Recent Click
+    - @user_items.each_with_index do |t, index|
+      %tr{style: "text-align:center;"}
+        %td.td= index+1
+        %td.td= link_to t.username.humanize, user_url(t.id)
+        %td.td= t.clicks.count
+        - if !(t.clicks.first == nil)
+          %td.td= t.clicks.first.created_at.strftime("%Y-%m-%d %H:%M:%S")
+        - else
+          %td.td Never clicked!

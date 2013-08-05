@@ -40,7 +40,7 @@
         .alert
           %strong{style: "font-size:70%"} Error!
           %div{style: "font-size:70%"}= msg
-      - elsif (name = "logout")
+      - elsif (name.to_s == "logout")
         .alert.alert-success
           %strong{style: "font-size:70%"} See ya!
           %div{style: "font-size:70%"}= msg

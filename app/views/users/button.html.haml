@@ -15,6 +15,7 @@
     .div{style: "text-align: center;"}
       %h2
         %strong
-          = current_user.username.humanize
-          = current_user.clicks
+          Click it.
+          -#= current_user.username.humanize
+          -#= current_user.clicks
     = link_to raw("The Button"), button_click_path, class: "btn btn-primary btn-large", method: :post

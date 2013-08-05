@@ -11,10 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130730141521) do
+ActiveRecord::Schema.define(version: 20130802035354) do
 
-  create_table "buttons", force: true do |t|
-    t.datetime "end_time"
+  create_table "clicks", force: true do |t|
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -24,8 +23,7 @@ ActiveRecord::Schema.define(version: 20130730141521) do
     t.string   "username"
     t.string   "email"
     t.string   "password_digest"
-    t.datetime "end_time",        default: '2013-07-30 20:57:15'
-    t.integer  "clicks",          default: 0
+    t.datetime "end_time",        default: '2013-08-02 13:54:17'
     t.datetime "created_at"
     t.datetime "updated_at"
   end

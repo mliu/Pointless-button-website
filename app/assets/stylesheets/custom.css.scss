@@ -7,13 +7,14 @@
   border-radius: 8px;
 }
 
-html{
+*{
   margin:0;
   padding:0;
 }
 
-body{
-  padding-top:30px;
+html, body{
+  padding-top:10px;
+  height:100%;
 }
 
 .left{
@@ -35,13 +36,24 @@ body{
   margin-top:20px;
 }
 
+.tableDiv{
+  width:70%;
+  margin-left:15%;
+  margin-right:15%;
+  margin-top:10px;
+}
+
+.td{
+  border-top:1px solid LightGray;
+}
+
 #jcountdown{
   position:fixed;
   width:700px;
   height:100px;
   left:50%;
   top:50%;
-  margin-left:-370px;
+  margin-left:-365px;
   margin-top:-200px;
 }
 
@@ -78,4 +90,51 @@ body{
   padding-top: 9px;
   font-weight: bold;
   line-height: 1;
+}
+
+#wrap {
+  min-height:100%;  
+}
+
+#main{
+  overflow:auto;
+  padding-bottom:40px;
+}
+
+#footer{
+  position:relative;
+  margin-top:-40px;
+  height:40px;
+  clear:both;
+}
+
+#about{
+  width:60%;
+  text-align:left;
+  margin-left:20%;
+  margin-right:20%;
+  font-size:22px;
+}
+
+footer {
+  margin-left:15%;
+  margin-right:15%;
+  padding-top:5px;
+  border-top:1px solid #C0C0C0;
+  color:#999;
+  width:70%;
+}
+
+.showLeftDiv{
+  width:12%;
+  padding-top:30px;
+  margin-left:8%;
+  float:left;
+  overflow:hidden;
+}
+
+.showRightDiv{
+  float:right;
+  width:65%;
+  margin-right:15%;
 }
