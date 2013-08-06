@@ -4,11 +4,11 @@
       %tr
         %th Click #
         %th Time
-      - @user.clicks.each_with_index do |t, index|
+      - @user.points.each_with_index do |t, index|
         %tr
           %td.td= index+1
           %td.td= t.created_at.strftime("%Y-%m-%d %H:%M:%S")
   .showLeftDiv
     %h1= @user.username.humanize
     %h2= "Rank: " + (@user_items.index(@user)+1).to_s
-    %h2= @user.clicks.count.to_s + " click(s)"
+    %h2= @user.points.count.to_s + " click(s)"

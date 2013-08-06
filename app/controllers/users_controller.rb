@@ -10,12 +10,12 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user_items = User.all.sort{|y,x| x.clicks.count <=> y.clicks.count}
+    @user_items = User.all.sort{|y,x| x.points.count <=> y.points.count}
     @user = User.find(params[:id])
   end
 
   def index
-    @user_items = User.all.sort{|y,x| x.clicks.count <=> y.clicks.count}.paginate(page: params[:page], per_page: 15)
+    @user_items = User.all.sort{|y,x| x.points.count <=> y.points.count}.paginate(page: params[:page], per_page: 15)
   end
 
   def create

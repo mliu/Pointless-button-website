@@ -4,7 +4,7 @@
       %strong
         = link_to current_user.username.humanize, user_url(current_user.id)
         &nbsp;:&nbsp;&nbsp;
-        = current_user.clicks.count.to_s + " Clicks"
+        = current_user.points.count.to_s + " Clicks"
     .div{style: "margin-left:10px; overflow:hidden"}
       #logo Pointless Button Clicking Game
       %nav
