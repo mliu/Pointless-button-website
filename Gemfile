@@ -3,9 +3,9 @@ ruby '2.0.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
-gem 'haml'
+gem 'haml', "~> 4.0.3"
 
-gem 'pg'
+gem 'pg', "~> 0.16.0"
 
 gem 'jquery-rails'
 gem 'jcountdown-rails', :git => 'http://github.com/rezwyi/jcountdown-rails.git'
