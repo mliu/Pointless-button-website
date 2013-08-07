@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   before_action :require_login
   protect_from_forgery with: :exception
-  force_ssl
+  #force_ssl
 
   private
     def current_user
