@@ -14,8 +14,8 @@ class ApplicationController < ActionController::Base
       if current_user == nil
         flash[:no_login] = "You must be logged in to access this page!"
         redirect_to root_url
-      end
     end
 
+  end
   helper_method :current_user
 end

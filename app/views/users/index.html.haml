@@ -7,6 +7,7 @@
       %th Username
       %th Clicks
       %th Most Recent Click
+      %th Next Click In
     - @user_items.each_with_index do |t, index|
       %tr{style: "text-align:center;"}
         %td.td= index+1
@@ -16,4 +17,8 @@
           %td.td= t.points.first.created_at.strftime("%Y-%m-%d %H:%M:%S")
         - else
           %td.td Never clicked!
+        -if !(t.points.first == nil)
+          %td.td=  ("%0.2f" % ((t.read_attribute(:end_time).to_s.to_time.strftime("%Y-%m-%d").to_time - Time.now)/3600)).to_s + " hours"
+        - else
+          %td.td Never
   = will_paginate @user_items

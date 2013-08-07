@@ -1,12 +1,12 @@
 .form
-  .hero-unit.left{style: "height:425px;"}
+  .hero-unit.left
     %h1{style: "color:black"} Sign Up
     -#=link_to "Log in", new_session_path
     %br
     = form_for @user do |f|
       - if !(@user.errors.empty?)
         .alert
-          %strong{style: "font-size:70%"} The Following Errors Occurred
+          %strong{style: "font-size:70%"} Error!
           %ul{style: "font-size:80%"}
             - for message in @user.errors.full_messages
               %li= message
