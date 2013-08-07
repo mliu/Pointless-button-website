@@ -4,6 +4,18 @@ class ApplicationController < ActionController::Base
   before_action :require_login
   protect_from_forgery with: :exception
   #force_ssl
+  unless Rails.application.config.consider_all_requests_local
+      rescue_from ActiveRecord::RecordNotFound,
+                  ActionController::RoutingError,
+                  ActionController::UnknownController,
+                  ActionController::UnknownAction,
+                  ActionController::MethodNotAllowed do |exception|
+
+        # Put loggers here, if desired.
+
+        redirect_to four_oh_four_path
+      end
+    end
 
   private
     def current_user
