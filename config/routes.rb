@@ -7,6 +7,8 @@ LoginTest::Application.routes.draw do
   post '/button/click' => 'clicks#click'
   root 'users#new'
   get '/about', to: 'sessions#about', as: :about
+  get '/faq', to: 'sessions#faq', as: :faq
+  get '/version', to: 'sessions#version', as: :version
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
