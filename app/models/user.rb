@@ -2,9 +2,11 @@ require 'bcrypt'
 
 class User < ActiveRecord::Base
   has_secure_password
-  validates_uniqueness_of :username
-  validates_uniqueness_of :email
-  validates_presence_of :username, :email, :password
+  validates :username, uniqueness: true, before: :create
+  validates :email, uniqueness: true, before: :create
+  # validates_uniqueness_of :username, before: :create
+  # validates_uniqueness_of :email, before: :create
+  validates_presence_of :username, :email, :password,
   validates :username, length: { minimum: 3, maximum: 15 }
   validates_format_of :username, :with => /^[-a-z]+$/, multiline: true, message: "must only contain letters and numbers"
   validates_format_of :email, :with => /^.+@.+$/, multiline: true
