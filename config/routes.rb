@@ -9,7 +9,7 @@ LoginTest::Application.routes.draw do
   get '/about', to: 'sessions#about', as: :about
   get '/faq', to: 'sessions#faq', as: :faq
   get '/version', to: 'sessions#version', as: :version
-  get '/oops', to: 'sessions#404', as: :four_oh_four
+  get '/oops', to: 'sessions#four_oh_four', as: :four_oh_four
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
