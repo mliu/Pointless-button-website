@@ -68,6 +68,11 @@ html, body{
   margin-top:-100px;
 }
 
+.achievement{
+  border:1px solid LightGray;
+  border-radius:5px;  
+}
+
 .middleDiv{
   width:500px;
   height:200px;
@@ -126,15 +131,15 @@ footer {
 }
 
 .showLeftDiv{
-  width:12%;
+  width:30%;
   padding-top:30px;
-  margin-left:8%;
+  margin-left:5%;
   float:left;
   overflow:hidden;
 }
 
 .showRightDiv{
   float:right;
-  width:65%;
-  margin-right:15%;
+  width:60%;
+  margin-right:5%;
 }

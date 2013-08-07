@@ -1,6 +1,6 @@
 .centerBox{style: "margin-top:30px;"}
   .showRightDiv{style: "margin-top:40px;"}
-    %table.table-bordered.table-hover.showRightDiv{style: "text-align:center;"}
+    %table.table-bordered.table-hover.showRightDiv{style: "text-align:center; width:80%; float:right;"}
       %tr
         %th Click #
         %th Time
@@ -12,3 +12,6 @@
     %h1= @user.username.humanize
     %h2= "Rank: " + (@user_items.index(@user)+1).to_s
     %h2= @user.points.count.to_s + " click(s)"
+    .achievement{style: "text-align:center;"}
+      %h2{style: "font-size:150%;"} Achievements:
+        
