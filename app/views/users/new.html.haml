@@ -1,5 +1,5 @@
 .form
-  .hero-unit.left
+  .hero-unit.left{style: "height:425px;"}
     %h1{style: "color:black"} Sign Up
     -#=link_to "Log in", new_session_path
     %br
@@ -32,7 +32,7 @@
         = f.label :password_confirmation
         = f.password_field :password_confirmation
       .actions= f.submit("Create User", :class => "btn btn-primary")
-    .div{style: "color:gray; font-size:60%; line-height:120%;"} Note: Your email won't be given out to anyone. I don't even know why I collect it. Maybe I'll send you random emails at 3 A.M. in the morning with mp3 attachments of me breathing heavily once you hit a certain number of clicks. Who knows. 
+    .div{style: "color:gray; font-size:60%; line-height:120%;"} Note: Your email won't be given out to anyone. I don't even know why I collect it. Maybe I'll send you random emails at 3 A.M. in the morning with mp3 attachments of me breathing heavily. Who knows. 
   
   %div{style: "margin-left:5%; margin-right:5%; width:1px; height:350px; background-color:black; float:left;"}
   
