@@ -1,6 +1,7 @@
 class ClicksController < ApplicationController
   def click
     @user = current_user
+    @user.check
     if @user.valid_click?
       @c = Click.new
       @c.update_attribute(:user_id, current_user.id)

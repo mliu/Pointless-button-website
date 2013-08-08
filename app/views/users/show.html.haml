@@ -4,14 +4,24 @@
       %tr
         %th Click #
         %th Time
-      - @user.points.each_with_index do |t, index|
+      - @user_clicks.each do |t|
         %tr
-          %td.td= index+1
+          %td.td= @user.points.find_index(t)+1
           %td.td= t.created_at.strftime("%Y-%m-%d %H:%M:%S")
-  .showLeftDiv
+    %br
+    %br
+    %br
+    .digg_pagination= will_paginate @user_clicks
+  .showLeftDiv{style: "margin-bottom:30px;"}
     %h1= @user.username.humanize
     %h2= "Rank: " + (@user_items.index(@user)+1).to_s
     %h2= @user.points.count.to_s + " click(s)"
     .achievement{style: "text-align:center; padding-bottom:20px;"}
       %h2{style: "font-size:150%;"} Achievements:
-      Coming Soon!
+      %table{style: "border:0;"}
+      - @a_items.each do |t|
+        %tr
+          %strong= t.title
+          %br
+          %img{src: "/assets/" + t.image}
+          %p{style: "font-size:80%"}= t.description

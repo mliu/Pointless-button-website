@@ -8,9 +8,9 @@
       %th Clicks
       %th Most Recent Click
       %th Next Click In
-    - @user_items.each_with_index do |t, index|
+    - @user_items.each do |t|
       %tr{style: "text-align:center;"}
-        %td.td= index+1
+        %td.td= @user_all.find_index(t)+1
         %td.td= link_to t.username.humanize, user_url(t.id)
         %td.td= t.points.count
         - if !(t.points.first == nil)
@@ -21,4 +21,4 @@
           %td.td=  ("%0.f" % ((t.read_attribute(:end_time).to_s.to_time.strftime("%Y-%m-%d").to_time - Time.now)/3600)).to_s + " hours"
         - else
           %td.td Never
-  = will_paginate @user_items
+  .digg_pagination{style: "margin-left:40%"}= will_paginate @user_items

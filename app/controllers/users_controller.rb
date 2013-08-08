@@ -6,16 +6,16 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def button
-  end
-
   def show
     @user_items = User.all.sort{|y,x| x.points.count <=> y.points.count}
     @user = User.find(params[:id])
+    @user_clicks = @user.points.paginate(page: params[:page], per_page:10)
+    @a_items = current_user.achievements
   end
 
   def index
-    @user_items = User.all.sort{|y,x| x.points.count <=> y.points.count}.paginate(page: params[:page], per_page: 15)
+    @user_all = User.all.sort{|y,x| x.points.count <=> y.points.count}
+    @user_items = User.all.sort{|y,x| x.points.count <=> y.points.count}.paginate(page: params[:page], per_page: 10)
   end
 
   def create
