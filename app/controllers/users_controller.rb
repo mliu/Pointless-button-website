@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     @user_items = User.all.sort{|y,x| x.points.count <=> y.points.count}
     @user = User.find(params[:id])
     @user_clicks = @user.points.paginate(page: params[:page], per_page:10)
-    @a_items = current_user.achievements
+    @a_items = User.find(params[:id]).achievements
   end
 
   def index
