@@ -18,7 +18,10 @@
         - else
           %td.td Never clicked!
         -if !(t.points.first == nil)
-          %td.td=  ("%0.f" % ((t.read_attribute(:end_time).to_s.to_time.strftime("%Y-%m-%d").to_time - Time.now)/3600)).to_s + " hours"
+          -if (("%0.f" % ((t.read_attribute(:end_time).to_s.to_time.strftime("%Y-%m-%d").to_time - Time.now)/3600)) < 0)
+            %td.td= "Now!"
+          -else
+            %td.td=  ("%0.f" % ((t.read_attribute(:end_time).to_s.to_time.strftime("%Y-%m-%d").to_time - Time.now)/3600)).to_s + " hours"
         - else
           %td.td Never
   .digg_pagination{style: "margin-left:40%"}= will_paginate @user_items
