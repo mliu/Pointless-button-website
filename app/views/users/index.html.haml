@@ -18,7 +18,7 @@
         - else
           %td.td Never clicked!
         -if !(t.points.first == nil)
-          -if (("%0.f" % ((t.read_attribute(:end_time).to_s.to_time.strftime("%Y-%m-%d").to_time - Time.now)/3600)) < 0)
+          -if (("%0.f" % ((t.read_attribute(:end_time).to_s.to_time.strftime("%Y-%m-%d").to_time - Time.now)/3600)).to_i < 0)
             %td.td= "Now!"
           -else
             %td.td=  ("%0.f" % ((t.read_attribute(:end_time).to_s.to_time.strftime("%Y-%m-%d").to_time - Time.now)/3600)).to_s + " hours"
